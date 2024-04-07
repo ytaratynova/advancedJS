@@ -20,55 +20,55 @@
 */
 
 class Library {
-    #books;
+    #books
     constructor(books) {
         try {
             if (new Set(books).size !== books.length) {
-                throw new Error('Duplicate books');
+                throw new Error('Duplicate books')
             }
         } catch (e) {
-            console.log(e.message);
+            console.log(e.message)
         }
-        this.#books = books;
+        this.#books = books
     }
 
     get allBooks() {
-        return this.#books;
+        return this.#books
     }
 
     addBook(title) {
         try {
             if (this.#books.includes(title)) {
-                throw new Error('Book already exists');
+                throw new Error('Book already exists')
             }
         }
         catch (e) {
-            console.log(e.message);
+            console.log(e.message)
         }
-        this.#books.push(title);
+        this.#books.push(title)
     }
 
     removeBook(title) {
         try {
             if (!this.#books.includes(title)) {
-                throw new Error('Book not found');
+                throw new Error('Book not found')
             }
         } catch (e) {
-            console.log(e.message);
+            console.log(e.message)
         }
-        this.#books = this.#books.filter(book => book !== title);
+        this.#books = this.#books.filter(book => book !== title)
     }
 
     hasBook(title) {
-        return this.#books.includes(title);
+        return this.#books.includes(title)
     }
 }
 
-const library = new Library(['Book 1', 'Book 2', 'Book 3', 'Book 4']);
-library.removeBook('Book 2');
-console.log(library.allBooks);
-library.addBook('Book 2');
-library.addBook('Book 4');
-console.log(library.allBooks);
-console.log(library.hasBook('Book 2'));
-console.log(library.hasBook('Book 5'));
+const library = new Library(['Book 1', 'Book 2', 'Book 3', 'Book 4'])
+library.removeBook('Book 2')
+console.log(library.allBooks)
+library.addBook('Book 2')
+library.addBook('Book 4')
+console.log(library.allBooks)
+console.log(library.hasBook('Book 2'))
+console.log(library.hasBook('Book 5'))
